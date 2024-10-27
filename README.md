@@ -6,3 +6,10 @@ This platform not only empowers customers to find the right professionals for th
 thekedars showcase their skills and secure new opportunities. By fostering a transparent and efficient 
 marketplace, Thekedar Hub aims to redefine the contracting experience, ensuring satisfaction for all 
 users involved. 
+
+
+
+
+
+
+Tech Stack Used MongoDb , Angular.js , Node.js  , Express.js
