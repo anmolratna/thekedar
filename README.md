@@ -1,3 +1,5 @@
+ONGOING PROJECT
+
 Thekedar Hub simplifies the hiring process by providing a user-friendly interface that facilitates direct 
 interaction through a unique bidding system. Customers can easily post their project requirements, 
 while thekedars can respond with competitive bids, allowing for informed decision-making based on 
