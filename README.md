@@ -18,3 +18,6 @@ Tech Stack Used MongoDb , Angular.js , Node.js  , Express.js
 
 Version Information 
 ![Screenshot 2024-11-05 183211](https://github.com/user-attachments/assets/5217270f-6709-4d6a-bc73-6c77d4cac71c)
+
+Angular Code Project Running Use Command 
+ng serve
