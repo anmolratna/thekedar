@@ -1,0 +1,157 @@
+<nav class="bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between p-4">
+        <!-- Logo Section -->
+        <a href="#" class="flex items-center space-x-2">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+            <span class="text-2xl font-semibold dark:text-white">ThekedarHub</span>
+        </a>
+
+        <!-- Desktop Navigation Links & Login Button -->
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">Home</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">About</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">Services</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">Contact</a>
+            <button class="bg-blue-700 text-white font-medium rounded-lg px-4 py-2 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700" [routerLink]="'/auth/signin'">
+                Login
+            </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button data-collapse-toggle="navbar-default" type="button" class="md:hidden inline-flex items-center p-2 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <div class="hidden md:hidden" id="navbar-default">
+        <div class="space-y-2 px-4 py-4">
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">Home</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">About</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">Services</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">Contact</a>
+            <button class="w-full bg-blue-700 text-white font-medium rounded-lg px-4 py-2 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700" [routerLink]="'/auth/signin'">
+                Login
+            </button>
+        </div>
+    </div>
+</nav>
+
+  
+  
+
+    <section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Find Trusted Contractors</h1>
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Bid For The Best Contractors NearBy</p>
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900" [routerLink]="'/auth/signin'">
+                    Get started
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+                <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+                    Learn more
+                </a>  
+            </div>
+        </div>
+    </section>
+    
+    <section class="container mx-auto my-10">
+        <h2 class="text-4xl font-semibold text-center mb-6">Featured Contractors</h2>
+        <div class="horizontal-scroll">
+          <div *ngFor="let contractor of contractors" class="contractor-card">
+            <img [src]="contractor.image" alt="{{ contractor.name }}" class="rounded-lg mb-4" />
+            <h3 class="text-xl font-semibold">{{ contractor.name }}</h3>
+            <p class="text-gray-600">Rating: {{ contractor.rating }}</p>
+            <p>Services: {{ contractor.services.join(', ') }}</p>
+            <button class="bg-green-500 text-white p-2 rounded mt-4 hover:bg-green-600 transition duration-300">View Profile</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-100 py-10">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-semibold text-center mb-6">How It Works</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:grid-cols-2">
+            <div *ngFor="let step of steps" class="p-4 bg-white rounded-lg shadow hover-effect scroll-in">
+              <h3 class="text-xl font-bold">{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="container mx-auto my-10">
+        <h2 class="text-3xl font-semibold text-center mb-6">What Our Customers Say</h2>
+        <div class="flex overflow-x-scroll space-x-4">
+          <div *ngFor="let testimonial of testimonials" class="testimonial-card bg-white shadow-lg rounded-lg p-4 min-w-[300px] mx-2 hover-effect scroll-in">
+            <p class="italic">“{{ testimonial.text }}”</p>
+            <h4 class="font-bold mt-2">- {{ testimonial.name }}</h4>
+          </div>
+        </div>
+      </section>
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-12 border-t-4 border-green-500">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        
+        <!-- About Section -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-green-400">About Us</h3>
+          <p class="text-black">We are a platform that connects customers with trusted contractors for all their construction needs.</p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-green-400">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-black hover:text-green-500 transition duration-300">Home</a></li>
+            <li><a href="#" class="text-black hover:text-green-500 transition duration-300">About</a></li>
+            <li><a href="#" class="text-black hover:text-green-500 transition duration-300">Services</a></li>
+            <li><a href="#" class="text-black hover:text-green-500 transition duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Information -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-green-400">Contact</h3>
+          <ul class="space-y-2">
+            <li class="text-black">Email: infothekedarhub.com</li>
+            <li class="text-black">Phone: +123 456 789</li>
+            <li class="text-black">Address: 1234 Main St, City, Country</li>
+          </ul>
+        </div>
+        
+        <!-- Social Media -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-green-400">Follow Us</h3>
+          <div class="flex space-x-6">
+            <a href="#" class="text-black hover:text-green-500 transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-black hover:text-green-500 transition duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-black hover:text-green-500 transition duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-black hover:text-green-500 transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- Footer Bottom -->
+      <div class="mt-8 text-center text-gray-400">
+        <p>&copy; 2024 ThekedarHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
