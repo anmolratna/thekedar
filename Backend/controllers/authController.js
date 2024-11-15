@@ -31,20 +31,27 @@ exports.signup= async(req,res)=>{
 };
 
 //Login
-exports.signin = async (req,res)=>{
-    const {email,password}= req.body;
-    try{
-        const user = await User.findOne({email});
-        if(!user) return res.status(400).json({message:'Invalid credentials'});
+exports.signin = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(400).json({ message: 'Invalid credentials' });
 
-        const isMatch = await bcrypt.compare(password,user.password);
-        if(!isMatch) return res.status(400).json({message:'Invalid credentials'});
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-        const token = jwt.sign({userId:user._id , role:user.role } , process.env.JWT_SECRET,{ expiresIn: '1h'});
+        const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.status(200).json({message:'Login successful'},token);
+        // Send name, email, token, and role in the response
+        res.status(200).json({
+            message: 'Login successful',
+            token,
+            role: user.role,
+            name: user.name, // Add the name field
+            email: user.email // Add the email field
+        });
 
-    } catch(error){
-        res.status(500).json({message:'Error logging in ' , error})
+    } catch (error) {
+        res.status(500).json({ message: 'Error logging in', error });
     }
 };
