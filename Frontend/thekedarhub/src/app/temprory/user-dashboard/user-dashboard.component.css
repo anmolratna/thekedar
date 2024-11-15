@@ -1,0 +1,10 @@
+.tab-content {
+    display: block;
+  }
+  
+  @media (min-width: 1024px) {
+    .tab-content {
+      display: block;
+    }
+  }
+  

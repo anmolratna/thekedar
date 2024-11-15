@@ -79,7 +79,7 @@ footer {
     max-height: 150px;
 }
 footer {
-    background: linear-gradient(90deg, #5da8ff, #605dff 50%, #ad63f6);
+    background: white;
     color: white;
   
     h3 {
