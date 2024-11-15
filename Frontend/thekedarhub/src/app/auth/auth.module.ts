@@ -24,6 +24,7 @@ import { AuthService } from './auth.service';
     HttpClientModule,
     ReactiveFormsModule,  // Add ReactiveFormsModule
     ToastrModule.forRoot(),  // Configure Toastr
+    FormsModule,
     
   ],
   providers: [AuthService]
